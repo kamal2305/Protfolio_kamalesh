@@ -15,9 +15,9 @@ function createParticles() {
         particle.style.position = 'absolute';
         particle.style.width = Math.random() * 3 + 1 + 'px';
         particle.style.height = particle.style.width;
-        particle.style.background = '#00f0ff';
+        particle.style.background = '#4A7BF7';
         particle.style.borderRadius = '50%';
-        particle.style.boxShadow = '0 0 10px rgba(0, 240, 255, 0.8)';
+        particle.style.boxShadow = '0 0 8px rgba(74, 123, 247, 0.6)';
         particle.style.left = Math.random() * 100 + '%';
         particle.style.top = Math.random() * 100 + '%';
         particle.style.opacity = Math.random() * 0.5 + 0.2;
@@ -218,6 +218,16 @@ const observer = new IntersectionObserver((entries) => {
                     }, 600 + (index * 100));
                 });
             }
+            
+            // Trigger skill icon animations with stagger
+            if (entry.target.classList.contains('skill-icon-item')) {
+                const allIcons = document.querySelectorAll('.skill-icon-item');
+                allIcons.forEach((icon, index) => {
+                    setTimeout(() => {
+                        icon.classList.add('visible');
+                    }, index * 80);
+                });
+            }
         }
     });
 }, observerOptions);
@@ -231,6 +241,7 @@ const animatedElements = document.querySelectorAll(`
     .about-stats,
     .skill-category,
     .skill-item,
+    .skill-icon-item,
     .project-card,
     .contact-info,
     .contact-form,
@@ -380,5 +391,5 @@ window.addEventListener('resize', () => {
 });
 
 // Log console message
-console.log('%c Portfolio by Kamalesh Thandi Thirumal ', 'background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 10px; font-size: 16px; font-weight: bold;');
-console.log('%c Thanks for visiting! ', 'color: #1e3a8a; font-size: 14px;');
+console.log('%c Portfolio by Kamalesh Thandi Thirumal ', 'background: linear-gradient(135deg, #3461D1, #4A7BF7); color: white; padding: 10px; font-size: 16px; font-weight: bold;');
+console.log('%c Thanks for visiting! ', 'color: #4A7BF7; font-size: 14px;');
